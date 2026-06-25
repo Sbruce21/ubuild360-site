@@ -1,722 +1,258 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-page="home">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>UBuild360 — Where Vision Meets Precision</title>
-  <meta name="description" content="UBuild360 is an enterprise SaaS company advancing development and construction through training-first systems, education, and career pathways." />
-  <meta name="theme-color" content="#003010" />
-
-  <!-- Update these file names if you used different ones -->
-  <link rel="icon" type="image/png" href="/assets/favicon.png" />
-
+  <meta name="description" content="UBuild360 intentionally supports construction owners, developers, builders, GCs, MEPs, skilled labor, and Owner Builders with focused systems for planning, execution, training, and growth." />
+  <meta name="theme-color" content="#0B5D37" />
+  <link rel="icon" type="image/png" sizes="32x32" href="site-assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="site-assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="site-assets/apple-touch-icon.png" />
   <style>
-    /* ==========================================================
-       UBuild360 — Brand + Theme System (reusable on all pages)
-       ========================================================== */
-
     :root{
-      /* Brand (constant across themes) */
-      --brand-green: #003010;
-      --brand-gold:  #D0A020;
-      --brand-gold2: #E0B030;
-
-      /* Light (default) */
-      --bg: #FFFFFF;
-      --bg2:#F7F5EF;
-      --surface: rgba(255,255,255,.86);
-      --surface2: rgba(247,245,239,.72);
-      --text:#111827;
-      --muted:#4B5563;
-      --line: rgba(17,24,39,.12);
-      --shadow: 0 18px 60px rgba(17,24,39,.10);
-
-      --radius: 18px;
-      --max: 1120px;
-
-      --focus: rgba(208,160,32,.35);
+      --green:#0B5D37;
+      --green2:#114E3B;
+      --gold:#D9A52A;
+      --gold2:#F1D389;
+      --ink:#171717;
+      --muted:#5f646d;
+      --line:#e4e4e7;
+      --bg:#fafafa;
+      --surface:#ffffff;
+      --surface2:#f5f5f5;
+      --shadow:0 28px 80px rgba(23,23,23,.12);
+      --soft:0 12px 30px rgba(23,23,23,.08);
+      --radius:28px;
+      --max:1240px;
     }
-
-    /* Auto dark mode */
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#070B14;
-        --bg2:#0B1220;
-        --surface: rgba(16,26,46,.86);
-        --surface2: rgba(11,18,32,.58);
-        --text:#EAF0FF;
-        --muted:#B9C6E4;
-        --line: rgba(234,240,255,.12);
-        --shadow: 0 22px 80px rgba(0,0,0,.40);
-      }
+    html.dark{
+      --ink:#ffffff;
+      --muted:#c8c8c8;
+      --line:rgba(255,255,255,.10);
+      --bg:#080808;
+      --surface:#111111;
+      --surface2:rgba(255,255,255,.055);
+      --shadow:0 28px 80px rgba(0,0,0,.35);
+      --soft:0 12px 30px rgba(0,0,0,.25);
     }
-
-    /* Manual override (set by toggle) */
-    html[data-theme="light"]{
-      --bg:#FFFFFF;
-      --bg2:#F7F5EF;
-      --surface: rgba(255,255,255,.86);
-      --surface2: rgba(247,245,239,.72);
-      --text:#111827;
-      --muted:#4B5563;
-      --line: rgba(17,24,39,.12);
-      --shadow: 0 18px 60px rgba(17,24,39,.10);
-    }
-    html[data-theme="dark"]{
-      --bg:#070B14;
-      --bg2:#0B1220;
-      --surface: rgba(16,26,46,.86);
-      --surface2: rgba(11,18,32,.58);
-      --text:#EAF0FF;
-      --muted:#B9C6E4;
-      --line: rgba(234,240,255,.12);
-      --shadow: 0 22px 80px rgba(0,0,0,.40);
-    }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: var(--text);
-      background:
-        radial-gradient(900px 520px at 10% 0%, rgba(0,48,16,.14), transparent 60%),
-        radial-gradient(900px 520px at 90% 20%, rgba(208,160,32,.14), transparent 60%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      line-height:1.5;
-    }
-    a{color:inherit}
-    img{max-width:100%; height:auto}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px;}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;transition:background .2s,color .2s}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .dark .topbar{background:rgba(8,8,8,.88)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+    .brand{display:flex;align-items:center;gap:12px;min-width:245px}
+    .mark{display:flex;align-items:center;justify-content:center;width:48px;height:48px;flex:0 0 48px}
+    .mark img{display:block;width:48px;height:48px;object-fit:contain}
+    .full-logo{display:block;width:min(320px,100%);height:auto;margin:0 0 16px}
+    .brand-name{font-weight:900;font-size:24px;letter-spacing:-.04em;line-height:1}.brand-name span:first-child{color:var(--green)}.brand-name span:last-child{color:var(--gold)}
+    .brand-sub{font-size:12px;color:var(--muted);margin-top:2px}
+    .links{display:flex;align-items:center;gap:24px;font-size:14px;color:#4f4f55}.dark .links{color:#d4d4d4}
+    .links a{transition:.18s}.links a:hover{color:var(--green)}.dark .links a:hover{color:var(--gold)}
+    .actions{display:flex;align-items:center;gap:12px}.btn,.btn2{border-radius:999px;border:1px solid var(--line);padding:11px 18px;font-size:14px;font-weight:800;background:var(--surface);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.02);transition:transform .12s,box-shadow .12s,border-color .12s,color .12s,background .12s}.btn:hover,.btn2:hover{transform:translateY(-1px);box-shadow:var(--soft);border-color:rgba(11,93,55,.35);color:var(--green)}.dark .btn:hover,.dark .btn2:hover{border-color:rgba(217,165,42,.45);color:var(--gold)}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.gold{background:var(--gold);border-color:var(--gold);color:#171717}.toggle{padding:8px 12px}.switch{width:44px;height:24px;border-radius:999px;background:#d4d4d4;position:relative;display:inline-flex;align-items:center;padding:3px}.switch i{display:block;width:18px;height:18px;border-radius:999px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:transform .2s}.dark .switch{background:var(--green)}.dark .switch i{transform:translateX(20px)}
+    .page{display:none}.page.active{display:block}.hero{position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top left,rgba(217,165,42,.18),transparent 28%),radial-gradient(circle at bottom right,rgba(11,93,55,.18),transparent 26%);pointer-events:none}.hero-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:72px 0}.eyebrow{display:inline-flex;align-items:center;border:1px solid rgba(11,93,55,.2);background:rgba(11,93,55,.05);padding:8px 13px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.18em;color:var(--green)}.dark .eyebrow{border-color:rgba(217,165,42,.22);background:rgba(255,255,255,.05);color:var(--gold)}
+    h1{font-size:clamp(42px,6vw,72px);letter-spacing:-.06em;line-height:1.02;margin:18px 0 0;font-weight:850}.lead{margin:24px 0 0;font-size:18px;line-height:1.75;color:var(--muted);max-width:680px}.small-lead{font-size:14px;color:var(--muted);line-height:1.8;max-width:620px;margin:12px 0 0}.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}.dashboard{position:relative;border:1px solid var(--line);background:var(--surface);border-radius:34px;padding:16px;box-shadow:var(--shadow)}.dash-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:16px}.dash-main{border-radius:26px;padding:32px;background:linear-gradient(135deg,var(--green) 0%, var(--green2) 55%, #1C1C1C 100%);color:#fff}.dash-kicker{font-size:14px;color:rgba(255,255,255,.72)}.dash-title{font-size:32px;line-height:1.14;font-weight:850;margin-top:42px}.pillars-small{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}.pillars-small>div{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:18px;padding:16px}.pillars-small strong{display:block;color:var(--gold2);font-size:14px;margin-bottom:8px}.pillars-small span{font-size:12px;line-height:1.6;color:rgba(255,255,255,.75)}.dash-side{border-radius:26px;background:var(--surface2);padding:20px;display:flex;flex-direction:column;gap:16px}.micro-card{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:18px}.micro-label{font-size:11px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.16em}.micro-title{font-weight:850;font-size:18px;margin-top:8px}.bar-row{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);margin:16px 0 6px}.bar{height:8px;background:#e5e5e5;border-radius:999px;overflow:hidden}.dark .bar{background:rgba(255,255,255,.1)}.bar b{display:block;height:100%;border-radius:inherit}.dashed{border:1px dashed #cfcfcf;border-radius:20px;padding:18px}.dark .dashed{border-color:rgba(255,255,255,.15)}.section{padding:72px 0}.two{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}.kicker{font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.18em;color:var(--green)}.dark .kicker{color:var(--gold)}h2{font-size:clamp(32px,4vw,44px);line-height:1.1;letter-spacing:-.045em;margin:14px 0 0}.bodytext{font-size:18px;line-height:1.75;color:var(--muted)}.card-grid{display:grid;gap:18px}.card-grid.three{grid-template-columns:repeat(3,1fr)}.card-grid.four{grid-template-columns:repeat(4,1fr)}.card-grid.two-cols{grid-template-columns:repeat(2,1fr)}.card{border:1px solid var(--line);background:var(--surface);border-radius:28px;padding:26px;box-shadow:var(--soft)}.card.soft{background:var(--surface2);box-shadow:none}.number{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:var(--green);color:#fff;font-weight:900;margin-bottom:16px}.icon{display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:18px;background:rgba(11,93,55,.1);color:var(--green);margin-bottom:18px}.dark .icon{background:rgba(217,165,42,.12);color:var(--gold)}.icon:after{content:"";width:20px;height:20px;border:2px solid currentColor;border-radius:7px}.card h3{font-size:20px;margin:0 0 10px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.75}.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);padding:72px 0}.dark .band{background:rgba(255,255,255,.04)}.wide-text{max-width:780px}.sti-band{background:linear-gradient(180deg,rgba(11,93,55,.04),rgba(217,165,42,.035));padding:72px 0}.dark .sti-band{background:linear-gradient(180deg,rgba(11,93,55,.1),rgba(217,165,42,.05))}.sti-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:42px;align-items:center}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.step{border:1px solid var(--line);background:var(--surface);border-radius:24px;padding:22px;text-align:center;box-shadow:var(--soft)}.step span{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:var(--green);color:#fff;font-weight:900;margin:0 auto 14px}.step strong{font-size:13px;text-transform:uppercase;letter-spacing:.05em}.green-cta{border-radius:32px;background:linear-gradient(135deg,var(--green) 0%, #0E3A2B 100%);color:#fff;padding:52px;box-shadow:0 26px 70px rgba(11,93,55,.22)}.quote-box{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:24px;padding:28px}.quote-box p{font-size:18px;line-height:1.75;color:rgba(255,255,255,.9);margin:0}.footer{border-top:1px solid var(--line);background:var(--surface);padding:48px 0}.footer-grid{display:grid;grid-template-columns:1fr .8fr;gap:42px}.footer p{color:var(--muted);font-size:14px;line-height:1.75;max-width:640px}.footer-links{display:grid;gap:12px;font-size:14px;color:var(--muted)}.footer-links a:hover{color:var(--green)}.dark .footer-links a:hover{color:var(--gold)}.fixed-toggle{position:fixed;right:20px;bottom:20px;z-index:70;background:var(--gold);color:#171717;border:0;border-radius:999px;padding:13px 20px;font-weight:900;box-shadow:0 12px 40px rgba(0,0,0,.25);cursor:pointer}.page-title{padding:64px 0 24px}.page-title h1{font-size:clamp(42px,5.5vw,68px);max-width:900px}.page-title p{max-width:780px}.split-card{display:grid;grid-template-columns:1fr 1fr;gap:20px}.feature-list{display:grid;gap:14px;margin-top:20px}.feature{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:18px}.feature strong{display:block;margin-bottom:5px}.feature span{color:var(--muted);font-size:14px;line-height:1.6}.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}.contact-form label{font-size:12px;font-weight:900;color:var(--muted);display:block;margin-bottom:7px}.contact-form input,.contact-form select,.contact-form textarea{width:100%;border:1px solid var(--line);background:var(--surface2);color:var(--ink);border-radius:16px;padding:13px}.contact-form textarea{min-height:120px;resize:vertical}.full{grid-column:1/-1}.note{font-size:12px;color:var(--muted);margin-top:12px}.mobile-only{display:none}
+    @media(max-width:1020px){.links{display:none}.hero-grid,.two,.sti-grid,.footer-grid,.split-card{grid-template-columns:1fr}.card-grid.four{grid-template-columns:repeat(2,1fr)}.dash-grid{grid-template-columns:1fr}.pillars-small{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.contact-form{grid-template-columns:1fr}.mobile-only{display:inline-flex}.actions .btn.primary{display:none}}
+    @media(max-width:640px){.wrap{padding:0 18px}.brand{min-width:auto}.brand-name{font-size:20px}.brand-sub{display:none}.hero-grid{padding:54px 0}.card-grid.three,.card-grid.four,.card-grid.two-cols{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.green-cta{padding:34px 24px}.dash-main{padding:24px}.dash-title{font-size:27px}.toggle span.label{display:none}.section,.band,.sti-band{padding:54px 0}.footer-grid{gap:24px}}
+  
+    .video-section{padding:72px 0}
+    .video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:30px}
+    .video-placeholder{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:30px;background:linear-gradient(135deg,rgba(11,93,55,.08),rgba(217,165,42,.08));box-shadow:var(--soft)}
+    .video-frame{position:relative;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(11,93,55,.92),rgba(17,78,59,.88)),var(--video-bg, none);background-size:cover;background-position:center}
+    .video-frame:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(217,165,42,.22),transparent 35%),linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,.08))}
+    .play{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:76px;height:76px;border-radius:999px;background:rgba(255,255,255,.92);box-shadow:0 18px 60px rgba(0,0,0,.22)}
+    .play:before{content:"";margin-left:5px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:23px solid var(--green)}
+    .video-copy{padding:20px 22px 24px;background:var(--surface)}
+    .video-copy h3{margin:0 0 8px;font-size:22px}
+    .video-copy p{margin:0;color:var(--muted);line-height:1.7}
+    .embed-note{margin-top:12px;font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .video-placeholder code{display:block;margin-top:12px;padding:10px 12px;border-radius:14px;background:var(--surface2);color:var(--muted);font-size:12px;white-space:normal}
+    @media(max-width:960px){.video-grid{grid-template-columns:1fr}.video-section{padding:52px 0}}
 
-    /* Accessibility */
-    :focus-visible{ outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 10px; }
-
-    /* ==========================================================
-       Top bar / Navigation
-       ========================================================== */
-    .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: color-mix(in srgb, var(--surface) 88%, transparent);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      padding: 14px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      text-decoration:none;
-      min-width: 220px;
-    }
-    .brandMark{
-      width:40px;
-      height:40px;
-      border-radius: 14px;
-      background:
-        radial-gradient(18px 18px at 25% 25%, rgba(208,160,32,.28), transparent 60%),
-        linear-gradient(135deg, rgba(0,48,16,.95), rgba(0,48,16,.70));
-      box-shadow: 0 12px 40px rgba(0,0,0,.10);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-    .brandMark img{
-      width: 30px;
-      height: 30px;
-      object-fit: contain;
-    }
-    .brandTitle{
-      display:flex;
-      flex-direction:column;
-      line-height:1.15;
-    }
-    .brandTitle strong{ letter-spacing:.2px; }
-    .brandTitle span{ font-size:12px; color: var(--muted); }
-
-    .navlinks{
-      display:flex;
-      align-items:center;
-      gap: 16px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .navlinks a{
-      text-decoration:none;
-      padding: 8px 10px;
-      border-radius: 10px;
-    }
-    .navlinks a:hover{
-      color: var(--text);
-      background: color-mix(in srgb, var(--brand-green) 10%, transparent);
-    }
-
-    .ctaRow{ display:flex; align-items:center; gap:10px; }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      text-decoration:none;
-      font-weight: 800;
-      font-size: 14px;
-      transition: transform .08s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
-      white-space:nowrap;
-      cursor:pointer;
-      user-select:none;
-      color: var(--text);
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 14px 40px rgba(0,0,0,.10);
-      border-color: color-mix(in srgb, var(--text) 18%, transparent);
-    }
-    .btn.primary{
-      background: var(--brand-green);
-      border-color: color-mix(in srgb, var(--brand-green) 75%, transparent);
-      color: #fff;
-      box-shadow: 0 16px 50px rgba(0,48,16,.18);
-    }
-    .btn.gold{
-      background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold2));
-      border-color: color-mix(in srgb, var(--brand-gold) 70%, transparent);
-      color: #1a1a1a;
-      box-shadow: 0 16px 50px rgba(208,160,32,.18);
-    }
-    .btn.icon{
-      padding: 10px 12px;
-      width: 44px;
-    }
-
-    /* ==========================================================
-       Hero
-       ========================================================== */
-    .hero{
-      padding: 54px 0 18px;
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 16px;
-      align-items:stretch;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--surface2) 88%, transparent);
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .dot{
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--brand-gold);
-      box-shadow: 0 0 0 4px rgba(208,160,32,.20);
-    }
-    h1{
-      font-size: clamp(34px, 4vw, 54px);
-      line-height: 1.05;
-      letter-spacing: -0.6px;
-      margin: 12px 0 14px;
-    }
-    .lead{
-      font-size: 18px;
-      line-height: 1.65;
-      color: var(--muted);
-      margin: 0 0 18px;
-      max-width: 720px;
-    }
-
-    .panel{
-      border-radius: var(--radius);
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-    .panel.pad{ padding: 18px; }
-
-    .kpis{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .kpi{
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--surface2) 92%, transparent);
-      padding: 12px;
-    }
-    .kpi .n{
-      font-weight: 900;
-      font-size: 16px;
-      color: color-mix(in srgb, var(--brand-green) 85%, white);
-    }
-    .kpi .t{
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .stack{ display:flex; flex-direction:column; gap: 12px; }
-    .mini{
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--surface2) 92%, transparent);
-      padding: 14px;
-    }
-    .mini strong{ display:block; margin-bottom: 6px; }
-    .mini p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.55; }
-
-    /* ==========================================================
-       Sections / Cards
-       ========================================================== */
-    section{ padding: 28px 0; }
-    .sectionTitle{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-    h2{
-      margin:0;
-      font-size: 26px;
-      letter-spacing: -0.25px;
-    }
-    .sub{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 520px;
-      line-height: 1.5;
-    }
-
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .card{
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      box-shadow: 0 10px 30px rgba(0,0,0,.08);
-      padding: 18px;
-    }
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--brand-green) 22%, transparent);
-      background: color-mix(in srgb, var(--brand-green) 8%, transparent);
-      color: var(--brand-green);
-      font-weight: 900;
-      font-size: 12px;
-      margin-bottom: 10px;
-      letter-spacing:.15px;
-    }
-    .card h3{ margin: 0 0 6px; font-size: 16px; }
-    .card p{ margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .quote{
-      border-radius: var(--radius);
-      border: 1px solid color-mix(in srgb, var(--brand-gold) 35%, transparent);
-      background: linear-gradient(135deg,
-        color-mix(in srgb, var(--brand-gold) 18%, transparent),
-        color-mix(in srgb, var(--brand-green) 12%, transparent)
-      );
-      padding: 18px;
-    }
-    .quote p{ margin:0; font-weight: 900; }
-    .quote .by{ margin-top: 8px; color: var(--muted); font-weight: 700; font-size: 13px; }
-
-    /* ==========================================================
-       Form (same style for all pages/forms)
-       ========================================================== */
-    .formWrap{
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-    form{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    label{ font-size: 12px; color: var(--muted); font-weight: 700; }
-    input, select, textarea{
-      width:100%;
-      padding: 11px 12px;
-      border-radius: 12px;
-      border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
-      background: color-mix(in srgb, var(--surface2) 90%, transparent);
-      color: var(--text);
-      outline: none;
-    }
-    textarea{ min-height: 96px; resize: vertical; grid-column: 1 / -1; }
-    .full{ grid-column: 1 / -1; }
-    .note{ margin-top: 10px; font-size: 12px; color: var(--muted); }
-
-    /* Footer */
-    .footer{
-      border-top: 1px solid var(--line);
-      padding: 22px 0 28px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .footerRow{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap:wrap;
-    }
-    .footer a{ color:inherit; text-decoration:none; }
-    .footer a:hover{ color: var(--text); }
-
-    /* Responsive */
-    @media (max-width: 920px){
-      .navlinks{ display:none; }
-      .hero{ grid-template-columns: 1fr; }
-      .grid3{ grid-template-columns: 1fr; }
-      .split{ grid-template-columns: 1fr; }
-      form{ grid-template-columns: 1fr; }
-      .kpis{ grid-template-columns: 1fr; }
-    }
   </style>
 </head>
-
 <body>
   <header class="topbar">
-    <div class="wrap">
-      <nav class="nav" aria-label="Primary">
-        <a class="brand" href="#top" aria-label="UBuild360 Home">
-          <div class="brandMark" aria-hidden="true">
-            <!-- Mark image optional; if missing, the green tile still looks fine -->
-            <img src="/assets/mark.png" alt="" onerror="this.remove()" />
-          </div>
-          <div class="brandTitle">
-            <strong>UBuild360</strong>
-            <span>Where Vision Meets Precision</span>
-          </div>
-        </a>
-
-        <div class="navlinks" aria-label="Site links">
-          <a href="#ecosystem">Ecosystem</a>
-          <a href="#growth">Intentional Growth</a>
-          <a href="#partner">Education Partner</a>
-          <a href="#founder">Founder</a>
-          <a href="#contact">Request Access</a>
-        </div>
-
-        <div class="ctaRow">
-          <button class="btn icon" id="themeToggle" type="button" aria-label="Toggle theme">🌙</button>
-          <a class="btn primary" href="#contact">Request a Conversation</a>
-          <a class="btn gold" href="#contact">Early Access</a>
-        </div>
+    <div class="wrap nav">
+      <a href="#home" class="brand" data-route="home" aria-label="UBuild360 Home">
+        <div class="mark"><img src="site-assets/ubuild360-mark.png" alt="UBuild360 logo mark" /></div>
+        <div><div class="brand-name"><span>UBuild</span><span>360</span></div><div class="brand-sub">Where Vision Meets Precision</div></div>
+      </a>
+      <nav class="links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#sti">STI</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#owner-builder" data-route="owner-builder">Owner Builder</a>
+        <a href="#contact" data-route="contact">Contact</a>
       </nav>
+      <div class="actions">
+        <button class="btn toggle" id="themeToggle" type="button"><span class="switch"><i></i></span><span class="label" id="themeLabel">Light Mode</span></button>
+        <a class="btn primary" href="#contact" data-route="contact">Talk with UBuild360</a>
+      </div>
     </div>
   </header>
 
-  <main id="top">
-    <div class="wrap">
 
-      <!-- HERO -->
+  <main>
+    <section id="page-home" class="page active">
       <section class="hero">
-        <div class="panel pad">
-          <span class="pill"><span class="dot" aria-hidden="true"></span> Phase 1: training, education, and careers — platform expansion later</span>
-
-          <h1>Enterprise SaaS—built to grow construction through people first.</h1>
-
-          <p class="lead">
-            UBuild360 is building a training-first ecosystem for development and construction:
-            structured learning, measurable progress, and field-ready standards that reduce costly mistakes and create career clarity.
-          </p>
-
-          <div class="ctaRow" style="gap:10px; flex-wrap:wrap;">
-            <a class="btn gold" href="#contact">Request Early Access</a>
-            <a class="btn" href="#ecosystem">Explore the Ecosystem</a>
-          </div>
-
-          <div class="kpis" role="list">
-            <div class="kpi" role="listitem">
-              <div class="n">Clarity</div>
-              <div class="t">Career paths & progression</div>
-            </div>
-            <div class="kpi" role="listitem">
-              <div class="n">Consistency</div>
-              <div class="t">Repeatable training standards</div>
-            </div>
-            <div class="kpi" role="listitem">
-              <div class="n">Confidence</div>
-              <div class="t">Better execution habits</div>
-            </div>
-          </div>
-
-          <p class="note">
-            Public messaging stays focused on education, training, and career growth. Advanced modules are introduced later.
-          </p>
-        </div>
-
-        <aside class="panel pad" aria-label="Highlights">
-          <div class="stack">
-            <div class="mini">
-              <strong>What we do (Phase 1)</strong>
-              <p>Education + training systems + career pathways that make skill progression measurable and repeatable.</p>
-            </div>
-            <div class="mini">
-              <strong>Who it’s for</strong>
-              <p>Contractors, developers/builders, new entrants, and professionals who want clarity, standards, and growth.</p>
-            </div>
-            <div class="mini">
-              <strong>What’s next</strong>
-              <p>As adoption grows, we expand into connected workflows and tools—built on the same training-first foundation.</p>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <!-- ECOSYSTEM -->
-      <section id="ecosystem">
-        <div class="sectionTitle">
-          <h2>One ecosystem. Three pillars.</h2>
-          <p class="sub">We grow technology adoption by building capability first—then systems scale naturally.</p>
-        </div>
-
-        <div class="grid3">
-          <div class="card">
-            <div class="tag">Pillar 1</div>
-            <h3>Education</h3>
-            <p>Structured learning paths tied to real roles, real outcomes, and real accountability.</p>
-          </div>
-          <div class="card">
-            <div class="tag">Pillar 2</div>
-            <h3>Training Systems</h3>
-            <p>Repeatable standards contractors can use to build teams that execute with consistency.</p>
-          </div>
-          <div class="card">
-            <div class="tag">Pillar 3</div>
-            <h3>Career Pathways</h3>
-            <p>Clear progression so people always know what to learn next—and why it matters.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- GROWTH -->
-      <section id="growth">
-        <div class="sectionTitle">
-          <h2>Intentional Growth</h2>
-          <p class="sub">Progress isn’t motivation. It’s structure, measurement, and follow-through.</p>
-        </div>
-
-        <div class="split">
-          <div class="card">
-            <div class="tag">The issue</div>
-            <h3>Training breaks down in the field</h3>
-            <p>
-              Informal onboarding and inconsistent standards lead to confusion, rework, delays, and stalled career growth.
-              The industry pays for uncertainty—owners, contractors, and crews.
-            </p>
-          </div>
-          <div class="card">
-            <div class="tag">Our approach</div>
-            <h3>People first, systems second</h3>
-            <p>
-              We build training and education systems that create stronger operators. When people have clarity,
-              standards, and confidence, technology adoption becomes easier—and scalable.
-            </p>
-          </div>
-        </div>
-
-        <div class="quote" style="margin-top:14px;">
-          <p>“In an age of AI, asking the right questions is a critical skill—because the wrong question can create costly outcomes.”</p>
-          <div class="by">UBuild360 philosophy</div>
-        </div>
-      </section>
-
-      <!-- PARTNER -->
-      <section id="partner">
-        <div class="sectionTitle">
-          <h2>Education Partner</h2>
-          <p class="sub">Training and testing pathways that support real advancement in MEP and specialty trades.</p>
-        </div>
-
-        <div class="card">
-          <h3>Intentional Growth Centers LLC</h3>
-          <p>
-            Through our education partner <strong>Intentional Growth Centers LLC</strong>, we support individuals entering MEP and
-            specialty trades with training and testing paths to help pass Journeyman and Contractor exams (where applicable).
-            Contractors can also train employees using structured coursework where pay progression can be justified by measurable course progress.
-          </p>
-        </div>
-      </section>
-
-      <!-- FOUNDER -->
-      <section id="founder">
-        <div class="sectionTitle">
-          <h2>Founder</h2>
-          <p class="sub">Systems mindset, execution focus, training-first conviction.</p>
-        </div>
-
-        <div class="card">
-          <h3>Ian Bruce, Founder & Entrepreneur</h3>
-          <p>
-            Ian Bruce began building businesses in his early 20s across construction, energy, marketing, software, communication, sports,
-            and education—evolving into a systems creator focused on one constant truth: learning and training are non-negotiable.
-          </p>
-          <p style="margin-top:10px;color:var(--muted); font-weight:700;">
-            “Your future is now. Knowledge is what you seek.”
-          </p>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact">
-        <div class="sectionTitle">
-          <h2>Request a conversation / early access</h2>
-          <p class="sub">Phase 1 is focused on education, training, and careers. Tell us what you’re trying to improve.</p>
-        </div>
-
-        <div class="formWrap">
-          <!--
-            This is a professional placeholder form.
-            Next step: connect it to Formspree/Tally/Typeform or a small Render handler.
-          -->
-          <form onsubmit="event.preventDefault(); alert('Thanks! For now, email info@ubuild360.com and we’ll follow up.');">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" placeholder="Full name" required />
-            </div>
-
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@company.com" required />
-            </div>
-
-            <div>
-              <label for="role">I am a</label>
-              <select id="role" name="role" required>
-                <option value="" selected disabled>Select one</option>
-                <option>CFO / Investor</option>
-                <option>Developer / Builder</option>
-                <option>Professional Candidate</option>
-                <option>Contractor / Employer</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="region">Region / City</label>
-              <input id="region" name="region" placeholder="City, State" />
-            </div>
-
-            <div class="full">
-              <label for="message">What are you trying to improve right now?</label>
-              <textarea id="message" name="message" placeholder="Example: onboarding speed, skill consistency, rework reduction, career clarity..."></textarea>
-            </div>
-
-            <div class="full" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-              <button class="btn gold" type="submit">Submit Request</button>
-              <a class="btn primary" href="mailto:info@ubuild360.com?subject=UBuild360%20Early%20Access%20Request">Email Instead</a>
-              <span class="note">We’ll respond with next steps if it’s a fit.</span>
-            </div>
-          </form>
-
-          <p class="note">Email: <a href="mailto:info@ubuild360.com">info@ubuild360.com</a></p>
-        </div>
-      </section>
-
-      <footer class="footer" role="contentinfo">
-        <div class="footerRow">
-          <div style="display:flex; gap:10px; align-items:center;">
-            <img src="/assets/logo.png" alt="UBuild360" style="height:28px; width:auto;" onerror="this.remove()" />
-            <div>
-              <strong>UBuild360</strong><br />
-              <span>Where Vision Meets Precision</span>
-            </div>
-          </div>
-
+        <div class="wrap hero-grid">
           <div>
-            <a href="#top">Back to top</a> &nbsp;·&nbsp;
-            <a href="mailto:info@ubuild360.com">info@ubuild360.com</a>
+            <span class="eyebrow">UBuild360 LLC</span>
+            <h1>Where Vision Meets Precision.</h1>
+            <p class="lead">UBuild360 intentionally supports you where you need it and when you need it—no bloated software packages, just the right systems to help you reduce friction, stay in control, and win.</p>
+            <p class="small-lead">Built for owners, developers, builders, GCs, MEPs, skilled labor, specialty contractors, and Owner Builders.</p>
+            <p class="small-lead">A connected ecosystem of systems designed to support planning, execution, training, and growth across construction.</p>
+            <div class="cta-row"><a class="btn primary" href="#ecosystem">Explore the Ecosystem</a><a class="btn" href="#sti">STI / Training</a><a class="btn gold" href="#owner-builder" data-route="owner-builder">Owner Builder Pathway</a></div>
           </div>
-
-          <div>© <span id="year"></span> UBuild360. All rights reserved.</div>
+          <div class="dashboard">
+            <div class="dash-grid">
+              <div class="dash-main">
+                <div class="dash-kicker">Clarity → Control → Precision</div>
+                <div class="dash-title">Operate with clarity.<br>Win with precision.</div>
+                <div class="pillars-small">
+                  <div><strong>Planning</strong><span>Visibility, coordination, and decision support</span></div>
+                  <div><strong>Execution</strong><span>Support, structure, and operational control</span></div>
+                  <div><strong>Growth</strong><span>Readiness, momentum, and scale</span></div>
+                </div>
+              </div>
+              <div class="dash-side">
+                <div class="micro-card">
+                  <div class="micro-label">Ecosystem Snapshot</div><div class="micro-title">Intentional Support Dashboard</div>
+                  <div class="bar-row"><span>Operational Clarity</span><span>88%</span></div><div class="bar"><b style="width:88%;background:var(--gold)"></b></div>
+                  <div class="bar-row"><span>Execution Control</span><span>81%</span></div><div class="bar"><b style="width:81%;background:var(--green)"></b></div>
+                </div>
+                <div class="dashed"><strong>Next Step</strong><p class="small-lead" style="margin-top:8px">Activate the right systems, remove friction, and support the next decision with more clarity and precision.</p></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </footer>
+      </section>
 
-    </div>
+      <section id="video-overview" class="video-section">
+        <div class="wrap">
+          <div class="wide-text">
+            <div class="kicker">Video overview</div>
+            <h2>UBuild360 in motion.</h2>
+            <p class="bodytext">Use this section for the HeyGen UBuild360 brand overview video. The video should quickly explain the ecosystem, the pathways, and the strongest current product offer.</p>
+          </div>
+          <div class="video-grid">
+            <div class="video-placeholder">
+              <div class="video-frame" style="--video-bg:url('site-assets/ubuild-ecosystem-hero.jpg')"><span class="play" aria-hidden="true"></span></div>
+              <div class="video-copy">
+                <h3>UBuild360 Brand Overview</h3>
+                <p>Suggested length: 30–45 seconds. Use this as the main homepage video introducing UBuild360 as the parent construction growth ecosystem.</p>
+                <div class="embed-note">Replace this block with HeyGen embed</div>
+                <code>&lt;iframe src="HEYGEN_UBUILD360_BRAND_VIDEO_URL"&gt;&lt;/iframe&gt;</code>
+              </div>
+            </div>
+            <div class="video-placeholder">
+              <div class="video-frame" style="--video-bg:url('site-assets/equipment-iq-hero.jpg')"><span class="play" aria-hidden="true"></span></div>
+              <div class="video-copy">
+                <h3>Equipment IQ Promo</h3>
+                <p>Suggested length: 30–45 seconds. This should be the primary sales video: QR scan, pre-op checklist, photo proof, authorized operators, and timestamped accountability.</p>
+                <div class="embed-note">Replace this block with HeyGen embed</div>
+                <code>&lt;iframe src="HEYGEN_EQUIPMENT_IQ_VIDEO_URL"&gt;&lt;/iframe&gt;</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section"><div class="wrap two"><div><div class="kicker">Intentional support where it matters</div><h2>Intentional support where it matters.</h2></div><div><p class="bodytext">Projects and businesses lose momentum when planning, execution, training, and support stay disconnected. UBuild360 brings those pieces together through intentional systems designed to reduce friction, improve control, and help people and companies move forward with greater clarity.</p><div class="card-grid three" style="margin-top:24px"><div class="card"><div class="number">1</div><h3>Planning</h3><p>Visibility, intelligence, and alignment.</p></div><div class="card"><div class="number">2</div><h3>Execution</h3><p>Support, workflow, and operational control.</p></div><div class="card"><div class="number">3</div><h3>Growth</h3><p>Readiness, momentum, and scalable progress.</p></div></div></div></div></section>
+
+      <section id="ecosystem" class="band"><div class="wrap"><div class="wide-text"><div class="kicker">What we build</div><h2>A connected ecosystem built for construction.</h2><p class="bodytext">UBuild360 is developing a connected ecosystem of systems designed to support owners, developers, builders, GCs, MEPs, skilled labor, specialty contractors, and Owner Builders.</p></div><div class="card-grid four" style="margin-top:36px"><div class="card soft"><div class="icon"></div><h3>Navigator-IQ</h3><p>Strategic visibility, coordination, and decision-support systems designed to support better planning and stronger execution.</p></div><div class="card soft"><div class="icon"></div><h3>STI</h3><p>Structured education and exam-to-license preparation designed to build readiness, confidence, and momentum.</p></div><div class="card soft"><div class="icon"></div><h3>Assistant-IQ</h3><p>Intentional support systems that help businesses stay lean, responsive, and focused without unnecessary software bloat.</p></div><div class="card soft"><div class="icon"></div><h3>Owner Builder</h3><p>A focused pathway for homeowners who want to plan, price, protect, manage, and document a build with more confidence.</p></div></div></div></section>
+
+      <section id="solutions" class="section"><div class="wrap"><div class="wide-text"><div class="kicker">Who we serve</div><h2>Built for the full construction ecosystem.</h2><p class="bodytext">UBuild360 supports different roles across construction—from planning and field execution to training, operational clarity, owner-builder guidance, and selective strategic collaboration.</p></div><div class="card-grid two-cols" style="margin-top:36px"><div class="card"><h3>Owners and Developers</h3><p>Gain clearer visibility, stronger decision support, and better pathways for alignment across complex projects and growth initiatives.</p></div><div class="card"><h3>Builders and General Contractors</h3><p>Support planning, execution, and operational control with systems designed to reduce friction and improve consistency.</p></div><div class="card"><h3>MEPs and Specialty Contractors</h3><p>Use focused systems, support, and structure to operate leaner, stay organized, and grow with more confidence.</p></div><div class="card"><h3>Homeowners and Owner Builders</h3><p>Use a guided pathway to avoid costly mistakes, understand the build process, and communicate with contractors more clearly.</p></div></div></div></section>
+
+      <section id="sti" class="sti-band"><div class="wrap sti-grid"><div class="card"><div class="kicker">Education is one pathway into the ecosystem</div><h2>STI is a focused education pathway within the UBuild360 ecosystem.</h2><p class="bodytext">STI helps build readiness, confidence, and forward momentum through structured education, practice, and licensing support tied to the broader UBuild360 ecosystem.</p><div class="cta-row"><a class="btn gold" href="#contact" data-route="contact">STI / Training</a></div></div><div class="steps"><div class="step"><span>1</span><strong>Study</strong></div><div class="step"><span>2</span><strong>Practice</strong></div><div class="step"><span>3</span><strong>Readiness</strong></div><div class="step"><span>4</span><strong>Licensure</strong></div><div class="step"><span>5</span><strong>Growth</strong></div></div></div></section>
+
+
+      <section id="pathway-videos" class="video-section">
+        <div class="wrap">
+          <div class="wide-text">
+            <div class="kicker">Pathway videos</div>
+            <h2>Focused videos for each pathway.</h2>
+            <p class="bodytext">These placements are ready for HeyGen videos that explain STI, Owner Builder, Assistant IQ, and Navigator-IQ without overwhelming visitors.</p>
+          </div>
+          <div class="video-grid">
+            <div class="video-placeholder">
+              <div class="video-frame" style="--video-bg:url('site-assets/sti-training-hero.jpg')"><span class="play" aria-hidden="true"></span></div>
+              <div class="video-copy">
+                <h3>STI Training Pathway</h3>
+                <p>Use this video to explain learning, practice, readiness, and growth while directing visitors to request training information.</p>
+                <div class="embed-note">Replace this block with HeyGen embed</div>
+                <code>&lt;iframe src="HEYGEN_STI_TRAINING_VIDEO_URL"&gt;&lt;/iframe&gt;</code>
+              </div>
+            </div>
+            <div class="video-placeholder">
+              <div class="video-frame" style="--video-bg:url('site-assets/owner-builder-hero.jpg')"><span class="play" aria-hidden="true"></span></div>
+              <div class="video-copy">
+                <h3>Owner Builder Pathway</h3>
+                <p>Use this video to explain how UBuild360 helps owner builders plan, price, protect, manage, and document the build.</p>
+                <div class="embed-note">Replace this block with HeyGen embed</div>
+                <code>&lt;iframe src="HEYGEN_OWNER_BUILDER_VIDEO_URL"&gt;&lt;/iframe&gt;</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section"><div class="wrap"><div class="green-cta split-card"><div><div class="kicker" style="color:var(--gold2)">Built from experience</div><h2>Built from real industry experience and practical insight.</h2><p style="color:rgba(255,255,255,.82);font-size:18px;line-height:1.75;max-width:740px">UBuild360 is being built from decades of firsthand experience in construction, business development, and system design—focused on solving the friction that slows growth, limits execution, and keeps projects and companies from moving forward.</p></div><div class="quote-box"><p>“We are building the systems we wish had existed years ago—practical, intentional, and designed to help people and businesses operate with clarity and win with precision.”</p></div></div></div></section>
+    </section>
+
+    <section id="page-owner-builder" class="page">
+      <div class="wrap page-title"><span class="eyebrow">Owner Builder Pathway</span><h1>Build with more control, clarity, and protection.</h1><p class="lead">The UBuild360 Owner Builder pathway supports homeowners who want to act as their own builder, manage a remodel, or understand the process before they hire trades.</p><div class="cta-row"><a class="btn gold" href="https://obuild.ubuild360.com">Get Started</a><a class="btn" href="#contact" data-route="contact">Request Owner Builder Guidance</a><a class="btn" href="#home" data-route="home">Back to Main Site</a></div></div>
+      <div class="wrap section"><div class="card-grid four"><div class="card"><h3>Plan</h3><p>Understand scope, land, utilities, permits, timeline, and the decisions that shape the whole project.</p></div><div class="card"><h3>Price</h3><p>Compare bids, spot hidden costs, and create a clearer budget before mistakes become expensive.</p></div><div class="card"><h3>Protect</h3><p>Use better contracts, verification steps, payment controls, and documentation habits.</p></div><div class="card"><h3>Manage</h3><p>Keep trades, inspections, punch lists, and decisions moving with less confusion.</p></div></div></div>
+      <div class="sti-band"><div class="wrap two"><div><div class="kicker">Why it belongs inside UBuild360</div><h2>Owner Builder is one guided pathway inside the UBuild360 ecosystem.</h2></div><div><p class="bodytext">The Owner Builder pathway gives homeowners a clear step-by-step structure for planning, pricing, protecting, and managing their project while staying connected to the broader UBuild360 ecosystem.</p><div class="feature-list"><div class="feature"><strong>Owner Builder access</strong><span>Use the Owner Builder pathway when you want guided support for a build, remodel, land decision, or contractor conversation.</span></div><div class="feature"><strong>Built for clarity</strong><span>The pathway helps homeowners understand the process, avoid costly mistakes, document decisions, and communicate more clearly with trades.</span></div></div></div></div></div>
+    </section>
+
+    <section id="page-contact" class="page">
+      <div class="wrap page-title"><span class="eyebrow">Contact</span><h1>Connect with UBuild360.</h1><p class="lead">Tell us which part of the ecosystem matters most: STI, Owner Builder, Navigator-IQ, Assistant-IQ, MEP support, or broader growth systems.</p></div>
+      <div class="wrap section"><div class="card"><h2 style="margin-top:0">Conversation request</h2><form class="contact-form" onsubmit="event.preventDefault(); window.location.href='mailto:info@ubuild360.com?subject=UBuild360%20Conversation%20Request&body=' + encodeURIComponent('Name: '+this.name.value+'\nEmail: '+this.email.value+'\nInterest: '+this.interest.value+'\nRegion: '+this.region.value+'\nMessage: '+this.message.value);"><div><label>Name</label><input name="name" required placeholder="Full name"></div><div><label>Email</label><input name="email" type="email" required placeholder="you@company.com"></div><div><label>Primary interest</label><select name="interest" required><option value="">Select one</option><option>Owner Builder</option><option>STI / Training</option><option>Navigator-IQ / Enterprise</option><option>Assistant-IQ</option><option>MEP / Contractor Growth</option><option>Other</option></select></div><div><label>Region / City</label><input name="region" placeholder="City, State"></div><div class="full"><label>What are you trying to improve?</label><textarea name="message" placeholder="Example: owner-builder guidance, contractor training, operational clarity, rework reduction, career clarity..."></textarea></div><div class="full"><button class="btn gold" type="submit">Email Request</button><a class="btn primary" style="margin-left:10px" href="mailto:info@ubuild360.com?subject=UBuild360%20Conversation%20Request">Email Instead</a><p class="note">Submitting opens a prepared email so your request can be sent directly to UBuild360.</p></div></form></div></div>
+    </section>
   </main>
 
+  <footer class="footer"><div class="wrap footer-grid"><div><img class="full-logo" src="site-assets/ubuild360-logo-full.png" alt="UBuild360 logo" /><div class="brand"><div class="mark"><img src="site-assets/ubuild360-mark.png" alt="UBuild360 logo mark" /></div><div><div class="brand-name"><span>UBuild</span><span>360</span></div><div class="brand-sub">Where Vision Meets Precision</div></div></div><p>UBuild360 intentionally supports you where you need it and when you need it. STI is owned by Intentional Growth Centers LLC. Owner Builder is a focused pathway within the broader UBuild360 ecosystem.</p></div><div class="footer-links"><a href="#home" data-route="home">Home</a><a href="#owner-builder" data-route="owner-builder">Owner Builder</a><a href="#sti">STI</a><a href="#ecosystem">Ecosystem</a><a href="#contact" data-route="contact">Contact UBuild360</a><a href="mailto:info@ubuild360.com">info@ubuild360.com</a></div></div></footer>
+
+  <button class="fixed-toggle" id="fixedToggle">Dark Mode</button>
   <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const fixedToggle = document.getElementById('fixedToggle');
+    const themeLabel = document.getElementById('themeLabel');
+    function updateThemeLabels(){
+      const dark = root.classList.contains('dark');
+      fixedToggle.textContent = dark ? 'Light Mode' : 'Dark Mode';
+      themeLabel.textContent = dark ? 'Dark Mode' : 'Light Mode';
+      localStorage.setItem('ubuild360-theme', dark ? 'dark' : 'light');
+    }
+    function flipTheme(){root.classList.toggle('dark');updateThemeLabels();}
+    [toggle,fixedToggle].forEach(btn=>btn&&btn.addEventListener('click',flipTheme));
+    if(localStorage.getItem('ubuild360-theme') === 'dark') root.classList.add('dark');
+    updateThemeLabels();
 
-    // Theme toggle: auto by system, manual override saved in localStorage
-    (function () {
-      const key = "ubuild360-theme";
-      const btn = document.getElementById("themeToggle");
-
-      function setIcon(theme){
-        if(!btn) return;
-        btn.textContent = theme === "dark" ? "☀️" : "🌙";
-        btn.title = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+    const pages = {home:document.getElementById('page-home'), 'owner-builder':document.getElementById('page-owner-builder'), contact:document.getElementById('page-contact')};
+    function route(){
+      let hash = (location.hash || '#home').replace('#','');
+      if(location.hostname.startsWith('obuild.') && (!location.hash || location.hash === '#home')) hash = 'owner-builder';
+      if(!pages[hash]){
+        if(['about','sti','solutions','ecosystem'].includes(hash)){hash='home';}
+        else hash='home';
       }
-
-      const saved = localStorage.getItem(key);
-      if (saved === "dark" || saved === "light") {
-        document.documentElement.setAttribute("data-theme", saved);
-        setIcon(saved);
-      } else {
-        const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        setIcon(systemDark ? "dark" : "light");
-      }
-
-      if (btn) {
-        btn.addEventListener("click", function(){
-          const current = document.documentElement.getAttribute("data-theme");
-          if (!current) {
-            const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const next = systemDark ? "light" : "dark";
-            document.documentElement.setAttribute("data-theme", next);
-            localStorage.setItem(key, next);
-            setIcon(next);
-            return;
-          }
-          const next = current === "dark" ? "light" : "dark";
-          document.documentElement.setAttribute("data-theme", next);
-          localStorage.setItem(key, next);
-          setIcon(next);
-        });
-      }
-    })();
+      Object.values(pages).forEach(p=>p.classList.remove('active'));
+      pages[hash].classList.add('active');
+      root.dataset.page = hash;
+      window.scrollTo({top:0,behavior:'instant'});
+    }
+    window.addEventListener('hashchange', route);
+    document.querySelectorAll('[data-route]').forEach(a=>a.addEventListener('click',()=>setTimeout(route,0)));
+    route();
   </script>
 </body>
 </html>
