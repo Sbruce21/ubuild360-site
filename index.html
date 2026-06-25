@@ -43,6 +43,12 @@
     a{color:inherit;text-decoration:none}
     button,input,textarea,select{font:inherit}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+    .brand-logo-full{display:block;width:min(180px,100%);height:auto}
+    .hero-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+    .section-badge-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+    .section-logo{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:18px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--soft);overflow:hidden;flex:0 0 64px}
+    .section-logo img{width:100%;height:100%;object-fit:contain;padding:10px}
+    .section-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--muted);font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
     .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
     .dark .topbar{background:rgba(8,8,8,.88)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
@@ -65,8 +71,7 @@
     .video-placeholder{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:30px;background:linear-gradient(135deg,rgba(11,93,55,.08),rgba(217,165,42,.08));box-shadow:var(--soft)}
     .video-frame{position:relative;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(11,93,55,.92),rgba(17,78,59,.88)),var(--video-bg, none);background-size:cover;background-position:center}
     .video-frame:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(217,165,42,.22),transparent 35%),linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,.08))}
-    .play{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:76px;height:76px;border-radius:999px;background:rgba(255,255,255,.92);box-shadow:0 18px 60px rgba(0,0,0,.22)}
-    .play:before{content:"";margin-left:5px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:23px solid var(--green)}
+    .video-status{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--green);box-shadow:0 18px 60px rgba(0,0,0,.22);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .video-copy{padding:20px 22px 24px;background:var(--surface)}
     .video-copy h3{margin:0 0 8px;font-size:22px}
     .video-copy p{margin:0;color:var(--muted);line-height:1.7}
@@ -80,7 +85,7 @@
   <header class="topbar">
     <div class="wrap nav">
       <a href="#home" class="brand" data-route="home" aria-label="UBuild360 Home">
-        <div class="mark"><img src="site-assets/ubuild360-mark.png" alt="UBuild360 logo mark" /></div>
+        <img class="brand-logo-full" src="site-assets/ubuild360-logo-full.png" alt="UBuild360 logo" />
         <div><div class="brand-name"><span>UBuild</span><span>360</span></div><div class="brand-sub">Where Vision Meets Precision</div></div>
       </a>
       <nav class="links" aria-label="Main navigation">
@@ -104,6 +109,9 @@
       <section class="hero">
         <div class="wrap hero-grid">
           <div>
+            <div class="hero-brand">
+              <img class="brand-logo-full" src="site-assets/ubuild360-logo-full.png" alt="UBuild360 logo" />
+            </div>
             <span class="eyebrow">UBuild360 LLC</span>
             <h1>Where Vision Meets Precision.</h1>
             <p class="lead">UBuild360 intentionally supports you where you need it and when you need it—no bloated software packages, just the right systems to help you reduce friction, stay in control, and win.</p>
@@ -143,21 +151,27 @@
             <p class="bodytext">Use this section for the HeyGen UBuild360 brand overview video. The video should quickly explain the ecosystem, the pathways, and the strongest current product offer.</p>
           </div>
           <div class="video-grid">
+            <!-- HeyGen brand overview embed goes here when the URL is ready. Replace the iframe placeholder inside this card. -->
             <div class="video-placeholder">
-              <div class="video-frame" style="--video-bg:url('site-assets/ubuild-ecosystem-hero.jpg')"><span class="play" aria-hidden="true"></span></div>
+              <div class="video-frame" style="--video-bg:url('site-assets/ubuild-ecosystem-hero.jpg')"><span class="video-status">Video placeholder · Coming soon</span></div>
               <div class="video-copy">
                 <h3>UBuild360 Brand Overview</h3>
-                <p>Suggested length: 30–45 seconds. Use this as the main homepage video introducing UBuild360 as the parent construction growth ecosystem.</p>
-                <div class="embed-note">Replace this block with HeyGen embed</div>
+                <p>Video placeholder — HeyGen video will be added here. Suggested length: 30–45 seconds. Use this as the main homepage video introducing UBuild360 as the parent construction growth ecosystem.</p>
+                <div class="embed-note">Paste the HeyGen embed here when ready</div>
                 <code>&lt;iframe src="HEYGEN_UBUILD360_BRAND_VIDEO_URL"&gt;&lt;/iframe&gt;</code>
               </div>
             </div>
+            <!-- HeyGen Equipment IQ embed goes here when the URL is ready. Replace the iframe placeholder inside this card. -->
             <div class="video-placeholder">
-              <div class="video-frame" style="--video-bg:url('site-assets/equipment-iq-hero.jpg')"><span class="play" aria-hidden="true"></span></div>
+              <div class="video-frame" style="--video-bg:url('site-assets/equipment-iq-hero.jpg')"><span class="video-status">Video placeholder · Coming soon</span></div>
               <div class="video-copy">
+                <div class="section-badge-row">
+                  <div class="section-logo"><img src="site-assets/equipment-iq-hero.jpg" alt="Equipment IQ visual treatment" /></div>
+                  <span class="section-badge">Equipment IQ</span>
+                </div>
                 <h3>Equipment IQ Promo</h3>
-                <p>Suggested length: 30–45 seconds. This should be the primary sales video: QR scan, pre-op checklist, photo proof, authorized operators, and timestamped accountability.</p>
-                <div class="embed-note">Replace this block with HeyGen embed</div>
+                <p>Video placeholder — HeyGen video will be added here. Suggested length: 30–45 seconds. This should be the primary sales video: QR scan, pre-op checklist, photo proof, authorized operators, and timestamped accountability.</p>
+                <div class="embed-note">Paste the HeyGen embed here when ready</div>
                 <code>&lt;iframe src="HEYGEN_EQUIPMENT_IQ_VIDEO_URL"&gt;&lt;/iframe&gt;</code>
               </div>
             </div>
@@ -167,11 +181,11 @@
 
       <section id="about" class="section"><div class="wrap two"><div><div class="kicker">Intentional support where it matters</div><h2>Intentional support where it matters.</h2></div><div><p class="bodytext">Projects and businesses lose momentum when planning, execution, training, and support stay disconnected. UBuild360 brings those pieces together through intentional systems designed to reduce friction, improve control, and help people and companies move forward with greater clarity.</p><div class="card-grid three" style="margin-top:24px"><div class="card"><div class="number">1</div><h3>Planning</h3><p>Visibility, intelligence, and alignment.</p></div><div class="card"><div class="number">2</div><h3>Execution</h3><p>Support, workflow, and operational control.</p></div><div class="card"><div class="number">3</div><h3>Growth</h3><p>Readiness, momentum, and scalable progress.</p></div></div></div></div></section>
 
-      <section id="ecosystem" class="band"><div class="wrap"><div class="wide-text"><div class="kicker">What we build</div><h2>A connected ecosystem built for construction.</h2><p class="bodytext">UBuild360 is developing a connected ecosystem of systems designed to support owners, developers, builders, GCs, MEPs, skilled labor, specialty contractors, and Owner Builders.</p></div><div class="card-grid four" style="margin-top:36px"><div class="card soft"><div class="icon"></div><h3>Navigator-IQ</h3><p>Strategic visibility, coordination, and decision-support systems designed to support better planning and stronger execution.</p></div><div class="card soft"><div class="icon"></div><h3>STI</h3><p>Structured education and exam-to-license preparation designed to build readiness, confidence, and momentum.</p></div><div class="card soft"><div class="icon"></div><h3>Assistant-IQ</h3><p>Intentional support systems that help businesses stay lean, responsive, and focused without unnecessary software bloat.</p></div><div class="card soft"><div class="icon"></div><h3>Owner Builder</h3><p>A focused pathway for homeowners who want to plan, price, protect, manage, and document a build with more confidence.</p></div></div></div></section>
+      <section id="ecosystem" class="band"><div class="wrap"><div class="wide-text"><div class="kicker">What we build</div><h2>A connected ecosystem built for construction.</h2><p class="bodytext">UBuild360 is developing a connected ecosystem of systems designed to support owners, developers, builders, GCs, MEPs, skilled labor, specialty contractors, and Owner Builders.</p></div><div class="card-grid four" style="margin-top:36px"><div class="card soft"><div class="section-badge-row"><div class="section-logo"><img src="site-assets/navigator-iq-logo.png" alt="Navigator-IQ logo" /></div><span class="section-badge">Navigator-IQ</span></div><h3>Navigator-IQ</h3><p>Strategic visibility, coordination, and decision-support systems designed to support better planning and stronger execution.</p></div><div class="card soft"><div class="section-badge-row"><span class="section-badge">STI | Skilled Trade Institute</span></div><h3>STI</h3><p>Structured education and exam-to-license preparation designed to build readiness, confidence, and momentum.</p></div><div class="card soft"><div class="icon"></div><h3>Assistant-IQ</h3><p>Intentional support systems that help businesses stay lean, responsive, and focused without unnecessary software bloat.</p></div><div class="card soft"><div class="section-badge-row"><span class="section-badge">Owner Builder Pathway</span></div><h3>Owner Builder</h3><p>A focused pathway for homeowners who want to plan, price, protect, manage, and document a build with more confidence.</p></div></div></div></section>
 
       <section id="solutions" class="section"><div class="wrap"><div class="wide-text"><div class="kicker">Who we serve</div><h2>Built for the full construction ecosystem.</h2><p class="bodytext">UBuild360 supports different roles across construction—from planning and field execution to training, operational clarity, owner-builder guidance, and selective strategic collaboration.</p></div><div class="card-grid two-cols" style="margin-top:36px"><div class="card"><h3>Owners and Developers</h3><p>Gain clearer visibility, stronger decision support, and better pathways for alignment across complex projects and growth initiatives.</p></div><div class="card"><h3>Builders and General Contractors</h3><p>Support planning, execution, and operational control with systems designed to reduce friction and improve consistency.</p></div><div class="card"><h3>MEPs and Specialty Contractors</h3><p>Use focused systems, support, and structure to operate leaner, stay organized, and grow with more confidence.</p></div><div class="card"><h3>Homeowners and Owner Builders</h3><p>Use a guided pathway to avoid costly mistakes, understand the build process, and communicate with contractors more clearly.</p></div></div></div></section>
 
-      <section id="sti" class="sti-band"><div class="wrap sti-grid"><div class="card"><div class="kicker">Education is one pathway into the ecosystem</div><h2>STI is a focused education pathway within the UBuild360 ecosystem.</h2><p class="bodytext">STI helps build readiness, confidence, and forward momentum through structured education, practice, and licensing support tied to the broader UBuild360 ecosystem.</p><div class="cta-row"><a class="btn gold" href="#contact" data-route="contact">STI / Training</a></div></div><div class="steps"><div class="step"><span>1</span><strong>Study</strong></div><div class="step"><span>2</span><strong>Practice</strong></div><div class="step"><span>3</span><strong>Readiness</strong></div><div class="step"><span>4</span><strong>Licensure</strong></div><div class="step"><span>5</span><strong>Growth</strong></div></div></div></section>
+      <section id="sti" class="sti-band"><div class="wrap sti-grid"><div class="card"><div class="kicker">Education is one pathway into the ecosystem</div><div class="section-badge-row"><span class="section-badge">STI | Skilled Trade Institute</span></div><h2>STI is a focused education pathway within the UBuild360 ecosystem.</h2><p class="bodytext">STI helps build readiness, confidence, and forward momentum through structured education, practice, and licensing support tied to the broader UBuild360 ecosystem.</p><div class="cta-row"><a class="btn gold" href="#contact" data-route="contact">STI / Training</a></div></div><div class="steps"><div class="step"><span>1</span><strong>Study</strong></div><div class="step"><span>2</span><strong>Practice</strong></div><div class="step"><span>3</span><strong>Readiness</strong></div><div class="step"><span>4</span><strong>Licensure</strong></div><div class="step"><span>5</span><strong>Growth</strong></div></div></div></section>
 
 
       <section id="pathway-videos" class="video-section">
@@ -209,7 +223,7 @@
 
     <section id="page-owner-builder" class="page">
       <span id="owner-builder" class="anchor-target" tabindex="-1" aria-hidden="true"></span>
-      <div class="wrap page-title"><span class="eyebrow">Owner Builder Pathway</span><h1>Build with more control, clarity, and protection.</h1><p class="lead">The UBuild360 Owner Builder pathway supports homeowners who want to act as their own builder, manage a remodel, or understand the process before they hire trades.</p><div class="cta-row"><a class="btn gold" href="https://obuild.ubuild360.com">Get Started</a><a class="btn" href="#contact" data-route="contact">Request Owner Builder Guidance</a><a class="btn" href="#home" data-route="home">Back to Main Site</a></div></div>
+      <div class="wrap page-title"><span class="eyebrow">Owner Builder Pathway</span><div class="section-badge-row"><span class="section-badge">Owner Builder Pathway</span></div><h1>Build with more control, clarity, and protection.</h1><p class="lead">The UBuild360 Owner Builder pathway supports homeowners who want to act as their own builder, manage a remodel, or understand the process before they hire trades.</p><div class="cta-row"><a class="btn gold" href="https://obuild.ubuild360.com">Get Started</a><a class="btn" href="#contact" data-route="contact">Request Owner Builder Guidance</a><a class="btn" href="#home" data-route="home">Back to Main Site</a></div></div>
       <div class="wrap section"><div class="card-grid four"><div class="card"><h3>Plan</h3><p>Understand scope, land, utilities, permits, timeline, and the decisions that shape the whole project.</p></div><div class="card"><h3>Price</h3><p>Compare bids, spot hidden costs, and create a clearer budget before mistakes become expensive.</p></div><div class="card"><h3>Protect</h3><p>Use better contracts, verification steps, payment controls, and documentation habits.</p></div><div class="card"><h3>Manage</h3><p>Keep trades, inspections, punch lists, and decisions moving with less confusion.</p></div></div></div>
       <div class="sti-band"><div class="wrap two"><div><div class="kicker">Why it belongs inside UBuild360</div><h2>Owner Builder is one guided pathway inside the UBuild360 ecosystem.</h2></div><div><p class="bodytext">The Owner Builder pathway gives homeowners a clear step-by-step structure for planning, pricing, protecting, and managing their project while staying connected to the broader UBuild360 ecosystem.</p><div class="feature-list"><div class="feature"><strong>Owner Builder access</strong><span>Use the Owner Builder pathway when you want guided support for a build, remodel, land decision, or contractor conversation.</span></div><div class="feature"><strong>Built for clarity</strong><span>The pathway helps homeowners understand the process, avoid costly mistakes, document decisions, and communicate more clearly with trades.</span></div></div></div></div></div>
     </section>
