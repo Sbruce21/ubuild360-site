@@ -70,6 +70,8 @@
     .video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:30px}
     .video-placeholder{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:30px;background:linear-gradient(135deg,rgba(11,93,55,.08),rgba(217,165,42,.08));box-shadow:var(--soft)}
     .video-frame{position:relative;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(11,93,55,.92),rgba(17,78,59,.88)),var(--video-bg, none);background-size:cover;background-position:center}
+    .video-embed{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(11,93,55,.62),rgba(17,78,59,.55)),var(--video-bg, none);background-size:cover;background-position:center}
+    .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
     .video-frame:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(217,165,42,.22),transparent 35%),linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,.08))}
     .video-status{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--green);box-shadow:0 18px 60px rgba(0,0,0,.22);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .video-status.clean{background:rgba(255,255,255,.96);color:var(--green)}
@@ -147,27 +149,29 @@
           <div class="wide-text">
             <div class="kicker">Video overview</div>
             <h2>UBuild360 in motion.</h2>
-            <p class="bodytext">Use this section for the HeyGen UBuild360 brand overview video. The video should quickly explain the ecosystem, the pathways, and the strongest current product offer.</p>
+            <p class="bodytext">These videos introduce UBuild360 and Equipment IQ in a clear, focused format.</p>
           </div>
           <div class="video-grid">
-            <!-- HeyGen brand overview embed goes here when the URL is ready. -->
             <div class="video-placeholder">
-              <div class="video-frame clean" style="--video-bg:url('site-assets/ubuild-ecosystem-hero.jpg')"><span class="video-status clean">HeyGen video coming soon</span></div>
+              <div class="video-embed" style="--video-bg:url('site-assets/ubuild-ecosystem-hero.jpg')">
+                <iframe src="https://app.heygen.com/embeds/ed93c26730054941908dac21761f1ee3?controls=false&toolbar=false&reactions=false&window_controls=false&controlbar_actions=false" title="UBuild360 - Brand Overview" allow="encrypted-media; fullscreen;" allowfullscreen></iframe>
+              </div>
               <div class="video-copy">
                 <h3>UBuild360 Brand Overview</h3>
-                <p>HeyGen video coming soon. Suggested length: 30–45 seconds. Use this as the main homepage video introducing UBuild360 as the parent construction growth ecosystem.</p>
+                <p>The primary homepage video introducing UBuild360 as the parent construction growth ecosystem.</p>
               </div>
             </div>
-            <!-- HeyGen Equipment IQ embed goes here when the URL is ready. -->
             <div class="video-placeholder">
-              <div class="video-frame clean" style="--video-bg:url('site-assets/equipment-iq-hero.jpg')"><span class="video-status clean">HeyGen video coming soon</span></div>
+              <div class="video-embed" style="--video-bg:url('site-assets/equipment-iq-hero.jpg')">
+                <iframe src="https://app.heygen.com/embeds/6bb33743043b4e76b6f39889cc4e39c4?controls=false&toolbar=false&reactions=false&window_controls=false&controlbar_actions=false" title="Equipment IQ - Accountable Construction Process Update" allow="encrypted-media; fullscreen;" allowfullscreen></iframe>
+              </div>
               <div class="video-copy">
                 <div class="section-badge-row">
                   <div class="section-logo"><img src="site-assets/equipment-iq-hero.jpg" alt="Equipment IQ visual treatment" /></div>
                   <span class="section-badge">Equipment IQ</span>
                 </div>
                 <h3>Equipment IQ Promo</h3>
-                <p>HeyGen video coming soon. Suggested length: 30–45 seconds. This should be the primary sales video: QR scan, pre-op checklist, photo proof, authorized operators, and timestamped accountability.</p>
+                <p>The primary sales video for QR scan workflows, pre-op checklist, photo proof, authorized operators, and timestamped accountability.</p>
               </div>
             </div>
           </div>
@@ -177,6 +181,26 @@
       <section id="about" class="section"><div class="wrap two"><div><div class="kicker">Intentional support where it matters</div><h2>Intentional support where it matters.</h2></div><div><p class="bodytext">Projects and businesses lose momentum when planning, execution, training, and support stay disconnected. UBuild360 brings those pieces together through intentional systems designed to reduce friction, improve control, and help people and companies move forward with greater clarity.</p><div class="card-grid three" style="margin-top:24px"><div class="card"><div class="number">1</div><h3>Planning</h3><p>Visibility, intelligence, and alignment.</p></div><div class="card"><div class="number">2</div><h3>Execution</h3><p>Support, workflow, and operational control.</p></div><div class="card"><div class="number">3</div><h3>Growth</h3><p>Readiness, momentum, and scalable progress.</p></div></div></div></div></section>
 
       <section id="ecosystem" class="band"><div class="wrap"><div class="wide-text"><div class="kicker">What we build</div><h2>A connected ecosystem built for construction.</h2><p class="bodytext">UBuild360 is developing a connected ecosystem of systems designed to support owners, developers, builders, GCs, MEPs, skilled labor, specialty contractors, and Owner Builders.</p></div><div class="card-grid four" style="margin-top:36px"><div class="card soft"><div class="section-badge-row"><div class="section-logo"><img src="site-assets/navigator-iq-logo.png" alt="Navigator-IQ logo" /></div><span class="section-badge">Navigator-IQ</span></div><h3>Navigator-IQ</h3><p>Strategic visibility, coordination, and decision-support systems designed to support better planning and stronger execution.</p></div><div class="card soft"><div class="section-badge-row"><span class="section-badge">STI | Skilled Trade Institute</span></div><h3>STI</h3><p>Structured education and exam-to-license preparation designed to build readiness, confidence, and momentum.</p></div><div class="card soft"><div class="icon"></div><h3>Assistant-IQ</h3><p>Intentional support systems that help businesses stay lean, responsive, and focused without unnecessary software bloat.</p></div><div class="card soft"><div class="section-badge-row"><span class="section-badge">Owner Builder Pathway</span></div><h3>Owner Builder</h3><p>A focused pathway for homeowners who want to plan, price, protect, manage, and document a build with more confidence.</p></div></div></div></section>
+
+      <section class="video-section" aria-label="Navigator-IQ teaser video">
+        <div class="wrap">
+          <div class="video-grid" style="margin-top:0">
+            <div class="video-placeholder">
+              <div class="video-embed" style="--video-bg:url('site-assets/navigator-iq-logo.png')">
+                <iframe src="https://app.heygen.com/embeds/b9b431c542ec41fe9a04bc4ddc9f3271?controls=false&toolbar=false&reactions=false&window_controls=false&controlbar_actions=false" title="Navigator-IQ - Enterprise Teaser" allow="encrypted-media; fullscreen;" allowfullscreen></iframe>
+              </div>
+              <div class="video-copy">
+                <div class="section-badge-row">
+                  <div class="section-logo"><img src="site-assets/navigator-iq-logo.png" alt="Navigator-IQ logo" /></div>
+                  <span class="section-badge">Navigator-IQ / Enterprise</span>
+                </div>
+                <h3>Navigator-IQ / Enterprise Teaser</h3>
+                <p>A short teaser for enterprise teams that need stronger visibility, coordination, and cross-project execution control.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="solutions" class="section"><div class="wrap"><div class="wide-text"><div class="kicker">Who we serve</div><h2>Built for the full construction ecosystem.</h2><p class="bodytext">UBuild360 supports different roles across construction—from planning and field execution to training, operational clarity, owner-builder guidance, and selective strategic collaboration.</p></div><div class="card-grid two-cols" style="margin-top:36px"><div class="card"><h3>Owners and Developers</h3><p>Gain clearer visibility, stronger decision support, and better pathways for alignment across complex projects and growth initiatives.</p></div><div class="card"><h3>Builders and General Contractors</h3><p>Support planning, execution, and operational control with systems designed to reduce friction and improve consistency.</p></div><div class="card"><h3>MEPs and Specialty Contractors</h3><p>Use focused systems, support, and structure to operate leaner, stay organized, and grow with more confidence.</p></div><div class="card"><h3>Homeowners and Owner Builders</h3><p>Use a guided pathway to avoid costly mistakes, understand the build process, and communicate with contractors more clearly.</p></div></div></div></section>
 
@@ -188,21 +212,25 @@
           <div class="wide-text">
             <div class="kicker">Pathway videos</div>
             <h2>Focused videos for each pathway.</h2>
-            <p class="bodytext">These placements are ready for HeyGen videos that explain STI, Owner Builder, Assistant IQ, and Navigator-IQ without overwhelming visitors.</p>
+            <p class="bodytext">These pathway videos explain STI and Owner Builder without overlay controls covering content.</p>
           </div>
           <div class="video-grid">
             <div class="video-placeholder">
-              <div class="video-frame clean" style="--video-bg:url('site-assets/sti-training-hero.jpg')"><span class="video-status clean">HeyGen video coming soon</span></div>
+              <div class="video-embed" style="--video-bg:url('site-assets/sti-training-hero.jpg')">
+                <iframe src="https://app.heygen.com/embeds/8a46abac03a14569a5d16b89f9258db9?controls=false&toolbar=false&reactions=false&window_controls=false&controlbar_actions=false" title="STI - Training Pathway" allow="encrypted-media; fullscreen;" allowfullscreen></iframe>
+              </div>
               <div class="video-copy">
                 <h3>STI Training Pathway</h3>
-                <p>HeyGen video coming soon. Use this video to explain learning, practice, readiness, and growth while directing visitors to request training information.</p>
+                <p>Explains learning, practice, readiness, and growth while directing visitors to request training information.</p>
               </div>
             </div>
             <div class="video-placeholder">
-              <div class="video-frame clean" style="--video-bg:url('site-assets/owner-builder-hero.jpg')"><span class="video-status clean">HeyGen video coming soon</span></div>
+              <div class="video-embed" style="--video-bg:url('site-assets/owner-builder-hero.jpg')">
+                <iframe src="https://app.heygen.com/embeds/d7e2a46c86564e0294098477e848b3c1?controls=false&toolbar=false&reactions=false&window_controls=false&controlbar_actions=false" title="Owner Builder - Guided Pathway" allow="encrypted-media; fullscreen;" allowfullscreen></iframe>
+              </div>
               <div class="video-copy">
                 <h3>Owner Builder Pathway</h3>
-                <p>HeyGen video coming soon. Use this video to explain how UBuild360 helps owner builders plan, price, protect, manage, and document the build.</p>
+                <p>Explains how UBuild360 helps owner builders plan, price, protect, manage, and document the build.</p>
               </div>
             </div>
           </div>
