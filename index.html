@@ -6,9 +6,9 @@
   <title>UBuild360 — Where Vision Meets Precision</title>
   <meta name="description" content="UBuild360 intentionally supports construction owners, developers, builders, GCs, MEPs, skilled labor, and Owner Builders with focused systems for planning, execution, training, and growth." />
   <meta name="theme-color" content="#0B5D37" />
-  <link rel="icon" type="image/png" sizes="32x32" href="site-assets/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="site-assets/favicon-16x16.png" />
-  <link rel="apple-touch-icon" href="site-assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/jpeg" href="site-assets/equipment-iq-hero.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="site-assets/equipment-iq-hero.jpg" />
+  <link rel="apple-touch-icon" href="site-assets/equipment-iq-hero.jpg" />
   <script>
     (function () {
       const root = document.documentElement;
@@ -86,6 +86,7 @@
     .video-frame{position:relative;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(11,93,55,.92),rgba(17,78,59,.88)),var(--video-bg, none);background-size:cover;background-position:center}
     .video-embed{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(11,93,55,.62),rgba(17,78,59,.55)),var(--video-bg, none);background-size:cover;background-position:center}
     .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+    .video-embed video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#000}
     .video-frame:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(217,165,42,.22),transparent 35%),linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,.08))}
     .video-status{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--green);box-shadow:0 18px 60px rgba(0,0,0,.22);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .video-status.clean{background:rgba(255,255,255,.96);color:var(--green)}
@@ -181,7 +182,9 @@
             </div>
             <div class="video-placeholder">
               <div class="video-embed" style="--video-bg:url('site-assets/equipment-iq-hero.jpg')">
-                <iframe src="https://app.heygen.com/embeds/6bb33743043b4e76b6f39889cc4e39c4?controls=false&toolbar=false&reactions=false&window_controls=false&controlbar_actions=false" title="Equipment IQ - Accountable Construction Process Update" allow="encrypted-media; fullscreen;" allowfullscreen></iframe>
+                <video controls playsinline preload="metadata" poster="site-assets/equipment-iq-hero.jpg" aria-label="Equipment IQ - Accountable Construction Process Update">
+                  <source src="site-assets/iq_final%20(1).mp4" type="video/mp4" />
+                </video>
               </div>
               <div class="video-copy">
                 <div class="section-badge-row">
