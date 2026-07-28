@@ -9,6 +9,20 @@
   <link rel="icon" type="image/png" sizes="32x32" href="site-assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="site-assets/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="site-assets/apple-touch-icon.png" />
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const storedTheme = localStorage.getItem('ubuild360-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+      root.classList.toggle('dark', isDark);
+      root.style.colorScheme = isDark ? 'dark' : 'light';
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', isDark ? '#08120b' : '#0B5D37');
+      }
+    })();
+  </script>
   <style>
     :root{
       --green:#0B5D37;
@@ -60,7 +74,7 @@
     .brand-sub{font-size:12px;color:var(--muted);margin-top:2px}
     .links{display:flex;align-items:center;gap:24px;font-size:14px;color:#4f4f55;flex-wrap:wrap}.dark .links{color:#d4d4d4}
     .links a{transition:.18s}.links a:hover{color:var(--green)}.dark .links a:hover{color:var(--gold)}
-    .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.btn,.btn2{border-radius:999px;border:1px solid var(--line);padding:11px 18px;font-size:14px;font-weight:800;background:var(--surface);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.02);transition:transform .12s,box-shadow .12s,border-color .12s,color .12s,background .12s}.btn:hover,.btn2:hover{transform:translateY(-1px);box-shadow:var(--soft);border-color:rgba(11,93,55,.35);color:var(--green)}.dark .btn:hover,.dark .btn2:hover{border-color:rgba(217,165,42,.45);color:var(--gold)}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.gold{background:var(--gold);border-color:var(--gold);color:#171717}
+    .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.theme-toggle{min-width:108px}.theme-toggle .theme-toggle-icon{font-size:16px;line-height:1}.theme-toggle .theme-toggle-label{font-size:13px}.btn,.btn2{border-radius:999px;border:1px solid var(--line);padding:11px 18px;font-size:14px;font-weight:800;background:var(--surface);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.02);transition:transform .12s,box-shadow .12s,border-color .12s,color .12s,background .12s}.btn:hover,.btn2:hover{transform:translateY(-1px);box-shadow:var(--soft);border-color:rgba(11,93,55,.35);color:var(--green)}.dark .btn:hover,.dark .btn2:hover{border-color:rgba(217,165,42,.45);color:var(--gold)}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.gold{background:var(--gold);border-color:var(--gold);color:#171717}
     .page{display:none}.page.active{display:block}.hero{position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top left,rgba(217,165,42,.18),transparent 28%),radial-gradient(circle at bottom right,rgba(11,93,55,.18),transparent 26%);pointer-events:none}.hero-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:72px 0}.eyebrow{display:inline-flex;align-items:center;border:1px solid rgba(11,93,55,.2);background:rgba(11,93,55,.05);padding:8px 13px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.18em;color:var(--green)}.dark .eyebrow{border-color:rgba(217,165,42,.22);background:rgba(255,255,255,.05);color:var(--gold)}
     h1{font-size:clamp(42px,6vw,72px);letter-spacing:-.06em;line-height:1.02;margin:18px 0 0;font-weight:850}.lead{margin:24px 0 0;font-size:18px;line-height:1.75;color:var(--muted);max-width:680px}.small-lead{font-size:14px;color:var(--muted);line-height:1.8;max-width:620px;margin:12px 0 0}.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}.dashboard{position:relative;border:1px solid var(--line);background:var(--surface);border-radius:34px;padding:16px;box-shadow:var(--shadow)}.dash-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:16px}.dash-main{border-radius:26px;padding:32px;background:linear-gradient(135deg,var(--green) 0%, var(--green2) 55%, #1C1C1C 100%);color:#fff}.dash-kicker{font-size:14px;color:rgba(255,255,255,.72)}.dash-title{font-size:32px;line-height:1.14;font-weight:850;margin-top:42px}.pillars-small{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}.pillars-small>div{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:18px;padding:16px}.pillars-small strong{display:block;color:var(--gold2);font-size:14px;margin-bottom:8px}.pillars-small span{font-size:12px;line-height:1.6;color:rgba(255,255,255,.75)}.dash-side{border-radius:26px;background:var(--surface2);padding:20px;display:flex;flex-direction:column;gap:16px}.micro-card{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:18px}.micro-label{font-size:11px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.16em}.micro-title{font-weight:850;font-size:18px;margin-top:8px}.bar-row{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);margin:16px 0 6px}.bar{height:8px;background:#e5e5e5;border-radius:999px;overflow:hidden}.dark .bar{background:rgba(255,255,255,.1)}.bar b{display:block;height:100%;border-radius:inherit}.dashed{border:1px dashed #cfcfcf;border-radius:20px;padding:18px}.dark .dashed{border-color:rgba(255,255,255,.15)}.section{padding:72px 0}.two{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}.kicker{font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.18em;color:var(--green)}.dark .kicker{color:var(--gold)}h2{font-size:clamp(32px,4vw,44px);line-height:1.1;letter-spacing:-.045em;margin:14px 0 0}.bodytext{font-size:18px;line-height:1.75;color:var(--muted)}.card-grid{display:grid;gap:18px}.card-grid.three{grid-template-columns:repeat(3,1fr)}.card-grid.four{grid-template-columns:repeat(4,1fr)}.card-grid.two-cols{grid-template-columns:repeat(2,1fr)}.card{border:1px solid var(--line);background:var(--surface);border-radius:28px;padding:26px;box-shadow:var(--soft)}.card.soft{background:var(--surface2);box-shadow:none}.number{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:var(--green);color:#fff;font-weight:900;margin-bottom:16px}.icon{display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:18px;background:rgba(11,93,55,.1);color:var(--green);margin-bottom:18px}.dark .icon{background:rgba(217,165,42,.12);color:var(--gold)}.icon:after{content:"";width:20px;height:20px;border:2px solid currentColor;border-radius:7px}.card h3{font-size:20px;margin:0 0 10px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.75}.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);padding:72px 0}.dark .band{background:rgba(255,255,255,.04)}.wide-text{max-width:780px}.sti-band{background:linear-gradient(180deg,rgba(11,93,55,.04),rgba(217,165,42,.035));padding:72px 0}.dark .sti-band{background:linear-gradient(180deg,rgba(11,93,55,.1),rgba(217,165,42,.05))}.sti-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:42px;align-items:center}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.step{border:1px solid var(--line);background:var(--surface);border-radius:24px;padding:22px;text-align:center;box-shadow:var(--soft)}.step span{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:var(--green);color:#fff;font-weight:900;margin:0 auto 14px}.step strong{font-size:13px;text-transform:uppercase;letter-spacing:.05em}.green-cta{border-radius:32px;background:linear-gradient(135deg,var(--green) 0%, #0E3A2B 100%);color:#fff;padding:52px;box-shadow:0 26px 70px rgba(11,93,55,.22)}.quote-box{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:24px;padding:28px}.quote-box p{font-size:18px;line-height:1.75;color:rgba(255,255,255,.9);margin:0}.footer{border-top:1px solid var(--line);background:var(--surface);padding:48px 0}.footer-grid{display:grid;grid-template-columns:1fr .8fr;gap:42px}.footer p{color:var(--muted);font-size:14px;line-height:1.75;max-width:640px}.footer-links{display:grid;gap:12px;font-size:14px;color:var(--muted)}.footer-links a:hover{color:var(--green)}.dark .footer-links a:hover{color:var(--gold)}.page-title{padding:64px 0 24px}.page-title h1{font-size:clamp(42px,5.5vw,68px);max-width:900px}.page-title p{max-width:780px}.split-card{display:grid;grid-template-columns:1fr 1fr;gap:20px}.feature-list{display:grid;gap:14px;margin-top:20px}.feature{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:18px}.feature strong{display:block;margin-bottom:5px}.feature span{color:var(--muted);font-size:14px;line-height:1.6}.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}.contact-form label{font-size:12px;font-weight:900;color:var(--muted);display:block;margin-bottom:7px}.contact-form input,.contact-form select,.contact-form textarea{width:100%;border:1px solid var(--line);background:var(--surface2);color:var(--ink);border-radius:16px;padding:13px}.contact-form textarea{min-height:120px;resize:vertical}.full{grid-column:1/-1}.note{font-size:12px;color:var(--muted);margin-top:12px}.mobile-only{display:none}
     @media(max-width:1020px){.links{display:none}.hero-grid,.two,.sti-grid,.footer-grid,.split-card{grid-template-columns:1fr}.card-grid.four{grid-template-columns:repeat(2,1fr)}.dash-grid{grid-template-columns:1fr}.pillars-small{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.contact-form{grid-template-columns:1fr}.mobile-only{display:inline-flex}.actions .btn.primary{display:none}}
@@ -99,6 +113,10 @@
         <a href="#contact" data-route="contact">Contact</a>
       </nav>
       <div class="actions">
+        <button class="btn theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
         <a class="btn primary" href="#contact" data-route="contact">Talk with UBuild360</a>
       </div>
     </div>
@@ -259,6 +277,37 @@
 
   <script>
     const root = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleIcon = themeToggle?.querySelector('.theme-toggle-icon');
+    const themeToggleLabel = themeToggle?.querySelector('.theme-toggle-label');
+
+    function applyTheme(theme) {
+      const isDark = theme === 'dark';
+      root.classList.toggle('dark', isDark);
+      root.style.colorScheme = isDark ? 'dark' : 'light';
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', isDark ? '#08120b' : '#0B5D37');
+      }
+      if (themeToggleIcon && themeToggleLabel) {
+        themeToggleIcon.textContent = isDark ? '☀️' : '🌙';
+        themeToggleLabel.textContent = isDark ? 'Light' : 'Dark';
+        themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+    }
+
+    function initTheme() {
+      const storedTheme = localStorage.getItem('ubuild360-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = storedTheme || (prefersDark ? 'dark' : 'light');
+      applyTheme(theme);
+    }
+
+    themeToggle?.addEventListener('click', () => {
+      const nextTheme = root.classList.contains('dark') ? 'light' : 'dark';
+      localStorage.setItem('ubuild360-theme', nextTheme);
+      applyTheme(nextTheme);
+    });
 
     const pages = {home:document.getElementById('page-home'), 'owner-builder':document.getElementById('page-owner-builder'), contact:document.getElementById('page-contact')};
     function route(){
@@ -273,6 +322,7 @@
       root.dataset.page = hash;
       window.scrollTo({top:0,behavior:'instant'});
     }
+    initTheme();
     window.addEventListener('hashchange', route);
     document.querySelectorAll('[data-route]').forEach(a=>a.addEventListener('click',()=>setTimeout(route,0)));
     route();
